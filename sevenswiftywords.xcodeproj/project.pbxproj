@@ -14,6 +14,8 @@
 		2024DA3F228777090032F3C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2024DA3D228777090032F3C3 /* LaunchScreen.storyboard */; };
 		2024DA4A228777090032F3C3 /* sevenswiftywordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024DA49228777090032F3C3 /* sevenswiftywordsTests.swift */; };
 		2024DA55228777090032F3C3 /* sevenswiftywordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024DA54228777090032F3C3 /* sevenswiftywordsUITests.swift */; };
+		20756F232288E0A800540F90 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20756F222288E0A800540F90 /* level1.txt */; };
+		20756F252288E36A00540F90 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20756F242288E36A00540F90 /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2024DA50228777090032F3C3 /* sevenswiftywordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sevenswiftywordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2024DA54228777090032F3C3 /* sevenswiftywordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sevenswiftywordsUITests.swift; sourceTree = "<group>"; };
 		2024DA56228777090032F3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20756F222288E0A800540F90 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		20756F242288E36A00540F90 /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				2024DA3B228777090032F3C3 /* Assets.xcassets */,
 				2024DA3D228777090032F3C3 /* LaunchScreen.storyboard */,
 				2024DA40228777090032F3C3 /* Info.plist */,
+				20756F222288E0A800540F90 /* level1.txt */,
+				20756F242288E36A00540F90 /* level2.txt */,
 			);
 			path = sevenswiftywords;
 			sourceTree = "<group>";
@@ -229,7 +235,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20756F252288E36A00540F90 /* level2.txt in Resources */,
 				2024DA3F228777090032F3C3 /* LaunchScreen.storyboard in Resources */,
+				20756F232288E0A800540F90 /* level1.txt in Resources */,
 				2024DA3C228777090032F3C3 /* Assets.xcassets in Resources */,
 				2024DA3A228777080032F3C3 /* Main.storyboard in Resources */,
 			);

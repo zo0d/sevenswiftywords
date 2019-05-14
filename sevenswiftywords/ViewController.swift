@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var letterButtons = [UIButton]()
     var activatedButtons = [UIButton]()
     var solutions = [String]()
+    var correctGuesses = [String]()
     
     var score = 0 {
         didSet {
@@ -126,6 +127,8 @@ class ViewController: UIViewController {
             for col in 0..<5 {
                 let letterButton = UIButton(type: .system)
                 letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+                letterButton.layer.borderWidth = 1
+                letterButton.layer.borderColor = UIColor.lightGray.cgColor
                 letterButton.setTitle("WWW", for: .normal)
                 
                 let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
@@ -158,6 +161,8 @@ class ViewController: UIViewController {
         guard let answerText = currentAnswer.text else { return }
         
         if let solutionPosition = solutions.firstIndex(of: answerText) {
+            correctGuesses.append(answerText)
+            
             activatedButtons.removeAll()
             
             var splitAnswers = answersLabel.text?.components(separatedBy: "\n")
@@ -167,11 +172,17 @@ class ViewController: UIViewController {
             currentAnswer.text = ""
             score += 1
             
-            if score % 7 == 0 {
+            if correctGuesses.sorted() == solutions.sorted() {
                 let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            if score > 0 { score -= 1 }
+            let ac = UIAlertController(title: "Incorrect guess", message: "\(currentAnswer.text ?? "") is incorrect. Please try again.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
+            clearTapped(sender)
         }
         
     }
@@ -211,6 +222,8 @@ class ViewController: UIViewController {
                     letterBits += bits
                 }
                 
+                print(solutions)
+                
                 cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
                 answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
                 
@@ -226,8 +239,17 @@ class ViewController: UIViewController {
     }
     
     func levelUp(action: UIAlertAction) {
-        level += 1
+        if level == 2 {
+            score = 0
+            level = 1
+        } else {
+            level += 1
+        }
+        
+        correctGuesses.removeAll(keepingCapacity: true)
         solutions.removeAll(keepingCapacity: true)
+        
+        
         
         loadLevel()
         
